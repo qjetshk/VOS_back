@@ -169,6 +169,10 @@ const config = {
         "fromEnvVar": null,
         "value": "windows",
         "native": true
+      },
+      {
+        "fromEnvVar": null,
+        "value": "rhel-openssl-3.0.x"
       }
     ],
     "previewFeatures": [],
@@ -195,8 +199,8 @@ const config = {
       }
     }
   },
-  "inlineSchema": "// This is your Prisma schema file,\n// learn more about it in the docs: https://pris.ly/d/prisma-schema\n\ngenerator client {\n  provider = \"prisma-client-js\"\n  output   = \"../generated/prisma\"\n}\n\ndatasource db {\n  provider  = \"postgresql\"\n  url       = env(\"DATABASE_URL\")\n  directUrl = env(\"DIRECT_URL\")\n}\n\nmodel User {\n  id             String          @id @default(uuid())\n  name           String\n  surname        String\n  phone          String          @unique\n  email          String          @unique\n  password       String\n  events         Event[]\n  participations Participation[]\n  refreshToken   String?\n  createdAt      DateTime        @default(now())\n  updatedAt      DateTime        @updatedAt\n}\n\nmodel Event {\n  id             String          @id @default(uuid())\n  title          String\n  desc           String\n  location       String\n  startDate      DateTime\n  endDate        DateTime\n  volunteerCount Int\n  creator        User            @relation(fields: [creatorId], references: [id])\n  creatorId      String\n  participations Participation[]\n  createdAt      DateTime        @default(now())\n  updatedAt      DateTime        @updatedAt\n}\n\nmodel Participation {\n  id        String   @id @default(uuid())\n  user      User     @relation(fields: [userId], references: [id])\n  userId    String\n  event     Event    @relation(fields: [eventId], references: [id])\n  eventId   String\n  createdAt DateTime @default(now())\n  updatedAt DateTime @updatedAt\n\n  @@unique([userId, eventId])\n}\n",
-  "inlineSchemaHash": "d1314557f7a7b331860555c60404b85bfd95dd62e04acf6f978629da88a1235b",
+  "inlineSchema": "// This is your Prisma schema file,\n// learn more about it in the docs: https://pris.ly/d/prisma-schema\n\ngenerator client {\n  provider      = \"prisma-client-js\"\n  output        = \"../generated/prisma\"\n  binaryTargets = [\"native\", \"rhel-openssl-3.0.x\"]\n}\n\ndatasource db {\n  provider  = \"postgresql\"\n  url       = env(\"DATABASE_URL\")\n  directUrl = env(\"DIRECT_URL\")\n}\n\nmodel User {\n  id             String          @id @default(uuid())\n  name           String\n  surname        String\n  phone          String          @unique\n  email          String          @unique\n  password       String\n  events         Event[]\n  participations Participation[]\n  refreshToken   String?\n  createdAt      DateTime        @default(now())\n  updatedAt      DateTime        @updatedAt\n}\n\nmodel Event {\n  id             String          @id @default(uuid())\n  title          String\n  desc           String\n  location       String\n  startDate      DateTime\n  endDate        DateTime\n  volunteerCount Int\n  creator        User            @relation(fields: [creatorId], references: [id])\n  creatorId      String\n  participations Participation[]\n  createdAt      DateTime        @default(now())\n  updatedAt      DateTime        @updatedAt\n}\n\nmodel Participation {\n  id        String   @id @default(uuid())\n  user      User     @relation(fields: [userId], references: [id])\n  userId    String\n  event     Event    @relation(fields: [eventId], references: [id])\n  eventId   String\n  createdAt DateTime @default(now())\n  updatedAt DateTime @updatedAt\n\n  @@unique([userId, eventId])\n}\n",
+  "inlineSchemaHash": "d9655d153649ac2dc63d4ecde616858c9e5aec57a4643136624f21cce78955e7",
   "copyEngine": true
 }
 
@@ -237,6 +241,10 @@ Object.assign(exports, Prisma)
 // file annotations for bundling tools to include these files
 path.join(__dirname, "query_engine-windows.dll.node");
 path.join(process.cwd(), "generated/prisma/query_engine-windows.dll.node")
+
+// file annotations for bundling tools to include these files
+path.join(__dirname, "libquery_engine-rhel-openssl-3.0.x.so.node");
+path.join(process.cwd(), "generated/prisma/libquery_engine-rhel-openssl-3.0.x.so.node")
 // file annotations for bundling tools to include these files
 path.join(__dirname, "schema.prisma");
 path.join(process.cwd(), "generated/prisma/schema.prisma")
