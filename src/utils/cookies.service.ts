@@ -6,10 +6,16 @@ class CookieService {
   setCookies(res: Response, tokens: Tokens) {
     res.cookie("accessToken", tokens.accessToken, {
       maxAge: TOKEN_CONFIG.accessExpIn,
+      secure: true,
+      sameSite: "none",
+      domain: ".vercel.app",
     });
     res.cookie("refreshToken", tokens.refreshToken, {
       maxAge: TOKEN_CONFIG.refreshExpIn,
       httpOnly: true,
+      secure: true,
+      sameSite: "none",
+      domain: ".vercel.app",
     });
   }
 
@@ -18,4 +24,4 @@ class CookieService {
   }
 }
 
-export default new CookieService()
+export default new CookieService();
