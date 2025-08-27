@@ -1,4 +1,4 @@
-import tokensService from "@/utils/tokens.service";
+import tokensService from "../../utils/tokens.service";
 import { Request, Response } from "express";
 import eventService from "./event.service";
 

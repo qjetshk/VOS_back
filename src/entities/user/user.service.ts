@@ -5,7 +5,7 @@ import {
   RefreshTokenPayload,
   Tokens,
 } from "./user.types";
-import tokensService from "@/utils/tokens.service";
+import tokensService from "../../utils/tokens.service";
 import bcrypt from "bcrypt";
 import prisma from "@/utils/prisma";
 import { verify } from "jsonwebtoken";
