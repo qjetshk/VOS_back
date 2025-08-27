@@ -7,9 +7,9 @@ import {
 } from "./user.types";
 import tokensService from "../../utils/tokens.service";
 import bcrypt from "bcrypt";
-import prisma from "@/utils/prisma";
+import prisma from "../../utils/prisma";
 import { verify } from "jsonwebtoken";
-import cookiesService from "@/utils/cookies.service";
+import cookiesService from "../../utils/cookies.service";
 import { Response } from "express";
 
 class UserService {

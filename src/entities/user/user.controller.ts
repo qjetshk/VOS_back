@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import { CreateUserInput, LoginInput, Tokens } from "./user.types";
 import userService from "./user.service";
-import cookiesService from "@/utils/cookies.service";
+import cookiesService from "../../utils/cookies.service";
 
 class UserController {
   async register(req: Request, res: Response) {

@@ -1,5 +1,5 @@
-import { TOKEN_CONFIG } from "@/config/auth";
-import { Tokens } from "@/entities/user/user.types";
+import { TOKEN_CONFIG } from "../config/auth";
+import { Tokens } from "../entities/user/user.types";
 import { CookieOptions, Response } from "express";
 
 class CookieService {

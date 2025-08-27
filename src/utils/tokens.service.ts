@@ -2,8 +2,8 @@ import jwt, { verify, sign } from "jsonwebtoken";
 import dotenv from "dotenv";
 import { hash } from "bcrypt";
 import prisma from "./prisma";
-import { RefreshTokenPayload } from "@/entities/user/user.types";
-import { TOKEN_CONFIG } from "@/config/auth";
+import { RefreshTokenPayload } from "../entities/user/user.types";
+import { TOKEN_CONFIG } from "../config/auth";
 
 dotenv.config();
 
