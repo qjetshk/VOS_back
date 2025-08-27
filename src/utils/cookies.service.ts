@@ -8,6 +8,7 @@ class CookieService {
       maxAge: TOKEN_CONFIG.accessExpIn,
       secure: true,
       sameSite: "none",
+      httpOnly: true,
 
     });
     res.cookie("refreshToken", tokens.refreshToken, {
