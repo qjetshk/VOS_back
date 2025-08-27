@@ -22,3 +22,6 @@ app.use("/api", router);
 app.listen(process.env.PORT || 4200, () => {
   console.log(`server is running on port ${process.env.PORT || 4200}`);
 });
+
+
+export default app
