@@ -8,14 +8,14 @@ class CookieService {
       maxAge: TOKEN_CONFIG.accessExpIn,
       secure: true,
       sameSite: "none",
-      domain: ".vercel.app",
+
     });
     res.cookie("refreshToken", tokens.refreshToken, {
       maxAge: TOKEN_CONFIG.refreshExpIn,
       httpOnly: true,
       secure: true,
       sameSite: "none",
-      domain: ".vercel.app",
+
     });
   }
 

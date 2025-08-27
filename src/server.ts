@@ -12,6 +12,7 @@ app.use(
     origin: /* process.env.DEPLOY_VERCEL_URL */ 'https://vos-front.vercel.app',
     credentials: true,
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization", "X-Requested-With", "Accept"],
   })
 );
 app.options("api/auth/logout", cors());
