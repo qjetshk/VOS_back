@@ -1,4 +1,4 @@
-# VOS (Volunteer Management System) - Backend
+# VOS (Volunteer Organizing System) - Backend
 
 [![Node.js](https://img.shields.io/badge/Node.js-20+-339933?logo=nodedotjs)](https://nodejs.org/)
 [![Express.js](https://img.shields.io/badge/Express.js-4.18+-000000?logo=express)](https://expressjs.com/)
